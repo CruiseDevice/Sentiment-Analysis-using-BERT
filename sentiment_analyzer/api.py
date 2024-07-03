@@ -1,7 +1,9 @@
 from typing import Dict
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from pydantic import BaseModel
+
+from classifier.model import Model, get_model
 
 app = FastAPI()
 
@@ -17,9 +19,10 @@ class SentimentResponse(BaseModel):
 
 
 @app.post("/predict", response_model=SentimentResponse)
-def predict(request: SentimentRequest):
+def predict(request: SentimentRequest, model: Model=Depends(get_model)):
+    sentiment, confidence, probabilities = model.predict(request.text)
     return SentimentResponse(
-        sentiment="positive",
-        confidence=0.98,
-        probabilities=dict(negative=0.005, neutral=0.015, positive=0.98)
+        sentiment=sentiment,
+        confidence=confidence,
+        probabilities=probabilities
     )
