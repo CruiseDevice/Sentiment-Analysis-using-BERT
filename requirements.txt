@@ -1,0 +1,5 @@
+fastapi
+pydantic
+torch
+transformer
+google-play-scraper
