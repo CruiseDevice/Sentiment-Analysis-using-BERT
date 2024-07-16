@@ -10,7 +10,7 @@ This project aims to perform sentiment analysis using the BERT model and Transfo
 ## Setup and Installation
 1. **Clone the repository:**
    ```sh
-   git clone <repository_url>
+   git clone https://github.com/CruiseDevice/Sentiment-Analysis-using-BERT.git
    cd sentiment_analyzer
    ```
 
@@ -58,7 +58,3 @@ The API will respond with a JSON object containing the predicted sentiment, the 
     }
 }
 ```
-
-## Project Structure
-
-## Dependencies
